@@ -1,0 +1,12 @@
+{
+   "type": "buff",
+   "axis": "buff",
+   "display_name": "i18n(miner_prof:perks.speed_1.name)",
+   "description": "i18n(miner_prof:perks.speed_1.desc)",
+   "icon": "file(speed_1_buff.png)",
+   "modifiers": {
+      "speed": {
+         "add": 10
+      }
+   }
+}

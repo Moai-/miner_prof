@@ -1,0 +1,13 @@
+{
+   "type" : "ai_pack",
+   "actions" : [
+      "miner_prof:actions:mining:mine_fast",
+      "miner_prof:actions:mining:dig_fast",
+      "miner_prof:actions:mining:dig_fast_adjacent",
+      "stonehearth:actions:mining:dig_foundation"
+   ],
+   "ai_packs" : [
+      "stonehearth:ai_pack:core",
+      "stonehearth:ai_pack:movement"
+   ]
+}

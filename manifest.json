@@ -1,0 +1,30 @@
+{
+	"info" : {
+		"name" : "Miner Profession",
+		"namespace" : "miner_prof",
+		"version" : 3,
+		"steam_file_id" : "1359741441",
+	},
+	"default_locale": "en",
+	"aliases" : {
+		"ai_pack:fast_mining": "file(ai/packs/fast_mining_ai_pack.json)",
+		"actions:mining:dig_fast_adjacent": "file(ai/actions/mining/dig_fast_adjacent_action.lua)",
+		"actions:mining:dig_fast": "file(ai/actions/mining/dig_fast_action.lua)",
+		"actions:mining:mine_fast": "file(ai/actions/mining/mine_fast_action.lua)",
+		"buffs:speed_1": "file(jobs/miner/miner_buffs/speed_1_buff)",
+		"buffs:speed_2": "file(jobs/miner/miner_buffs/speed_2_buff)",
+		"jobs:miner": "file(jobs/miner/miner_description.json)",
+		"miner:talisman": "file(jobs/miner/mining_pick/mining_pick_talisman.json)",
+		"miner:mining_pick": "file(jobs/miner/mining_pick/mining_pick.json)",
+		"miner:outfit": "file(jobs/miner/miner_outfit)"
+	},
+	"mixintos" : {
+		"stonehearth/jobs/index.json": "file(jobs/index.json)",
+		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)"
+	},
+	"overrides" : {},
+	"components" : {},
+	"controllers" : {
+		"class:miner": "file(jobs/miner/miner.lua)"
+	}
+}

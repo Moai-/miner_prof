@@ -1,0 +1,131 @@
+{
+   "type": "job",
+   "enabled": true,
+   "job_id": "miner",
+   "display_order": 2,
+   "alias": "miner_prof:jobs:miner",
+   "display_name": "i18n(miner_prof:info.name)",
+   "controller": "miner_prof:class:miner",
+   "description": "i18n(miner_prof:info.desc)",
+   "requirements": "i18n(miner_prof:info.req)",
+   "abilities": "file(miner_abilities)",
+   "equipment": {
+      "torso": "file(miner_outfit)",
+      "mainhand": "miner_prof:miner:mining_pick"
+   },
+   "roles": "miner_job",
+   "talisman_uri": "miner_prof:miner:talisman",
+   "default_stance": "passive",
+   "icon": "file(images/icon.png)",
+   "promotion_activity_name": "promote_miner",
+   "task_groups": [
+      "stonehearth:task_groups:common_tasks",
+      "stonehearth:task_groups:restock",
+      "stonehearth:task_groups:placement",
+      "stonehearth:task_groups:town_alert",
+      "stonehearth:task_groups:mining"
+   ],
+   "parent_job": "stonehearth:jobs:worker",
+   "parent_level_requirement": 0,
+   "max_level": 6,
+   "level_data": {
+     "1": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.work_1.name)",
+             "description": "i18n(miner_prof:perks.work_1.desc)",
+             "type": "set_miner_work",
+             "id": "miner_work_up_1",
+             "demote_fn": "set_miner_work",
+             "icon": "file(images/icon.png)",
+             "strikes": 3,
+             "blocks": 5,
+             "level": 1
+          },
+          {
+             "name": "i18n(miner_prof:perks.inv_1.name)",
+             "description": "i18n(miner_prof:perks.inv_1.desc)",
+             "type": "increase_backpack_size",
+             "id": "miner_backpack_bonus_1",
+             "demote_fn": "decrease_backpack_size",
+             "icon": "file(images/backpack_up.png)",
+             "backpack_size_increase": "2",
+             "level": 1
+          }
+       ]
+     },
+     "2": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.speed_1.name)",
+             "description": "i18n(miner_prof:perks.speed_1.desc)",
+             "type": "apply_buff",
+             "id": "miner_speed_up_1",
+             "demote_fn": "remove_buff",
+             "icon": "file(images/speed.png)",
+             "buff_name": "miner_prof:buffs:speed_1",
+             "level": 2
+          }
+       ]
+     },
+     "3": {
+       "perks": [
+
+          {
+             "name": "i18n(miner_prof:perks.work_2.name)",
+             "description": "i18n(miner_prof:perks.work_2.desc)",
+             "type": "set_miner_work",
+             "id": "miner_work_up_2",
+             "demote_fn": "set_miner_work",
+             "icon": "file(images/icon.png)",
+             "strikes": 2,
+             "blocks": 7,
+             "level": 3
+          }
+       ]
+     },
+     "4": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.inv_2.name)",
+             "description": "i18n(miner_prof:perks.inv_2.desc)",
+             "type": "increase_backpack_size",
+             "id": "miner_backpack_bonus_2",
+             "demote_fn": "decrease_backpack_size",
+             "icon": "file(images/backpack_up.png)",
+             "backpack_size_increase": "2",
+             "level": 4
+          }
+       ]
+     },
+     "5": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.speed_2.name)",
+             "description": "i18n(miner_prof:perks.speed_2.desc)",
+             "type": "apply_buff",
+             "id": "miner_speed_up_2",
+             "demote_fn": "remove_buff",
+             "icon": "file(images/speed.png)",
+             "buff_name": "miner_prof:buffs:speed_2",
+             "level": 5
+          }
+       ]
+     },
+     "6": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.work_3.name)",
+             "description": "i18n(miner_prof:perks.work_3.desc)",
+             "type": "set_miner_work",
+             "id": "miner_work_up_3",
+             "demote_fn": "set_miner_work",
+             "icon": "file(images/icon.png)",
+             "strikes": 1,
+             "blocks": 7,
+             "level": 6
+          }
+       ]
+     }
+   }
+}

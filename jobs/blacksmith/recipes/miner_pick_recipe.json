@@ -1,0 +1,26 @@
+{
+   "type": "recipe",
+   "effort": 60,
+   "work_units": 10,
+   "recipe_name": "i18n(miner_prof:items.pick_recipe.name)",
+   "description": "i18n(miner_prof:items.pick_recipe.desc)",
+   "flavor": "",
+   "portrait": "/miner_prof/jobs/miner/mining_pick/mining_pick.png",
+   "workshop": "stonehearth:blacksmith:workbench",
+   "level_requirement": 1,
+   "ingredients": [
+      {
+         "uri": "stonehearth:refined:iron_ingot",
+         "count": 1
+      },
+      {
+         "material": "wood resource",
+         "count": 1
+      }
+   ],
+   "produces": [
+      {
+         "item": "miner_prof:miner:talisman"
+      }
+   ]
+}
