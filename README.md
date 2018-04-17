@@ -2,9 +2,9 @@ Greetings my fellow hearth**kings**, today I bring before you the humble, yet ve
 
 ![thumbnail](https://discourse.stonehearth.net/uploads/stonehearth/original/3X/7/1/710e62764ce712c27c9a88616ed628cd26f39dbf.jpg)
 
-[Dropbox Link](https://www.dropbox.com/s/g1mh5zlmtyp7kwf/miner_prof.smod?dl=0)
-[Steam Upload](https://steamcommunity.com/sharedfiles/filedetails/?id=1359741441)
-[GitHub Repo](https://github.com/Moai-/miner_prof)
+[Dropbox Link](https://www.dropbox.com/s/g1mh5zlmtyp7kwf/miner_prof.smod?dl=0)  
+[Steam Upload](https://steamcommunity.com/sharedfiles/filedetails/?id=1359741441)  
+[GitHub Repo](https://github.com/Moai-/miner_prof)  
 
 The more your Miners mine, the better they get at it. I have a desert settlement megaproject, which involves digging a whole bunch of land around a small lake, to make it a water-filled mountain. But it was taking FOREEEVERRR! So I made this class to speed things up.  
 
