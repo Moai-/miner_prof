@@ -14,11 +14,7 @@
 		},
 		"work_2": {
 			"name": "Advanced mining techniques",
-<<<<<<< HEAD
 			"desc": "Pulverizing stone is easier than brushing teeth to this miner. Mining efficiency increased."
-=======
-			"desc": "Pulverizing stone is second nature to this miner. Mining efficiency increased."
->>>>>>> 91a3f951a832233b51c79ab758a6618a963038de
 		},
 		"inv_2": {
 			"name": "Extra compartments",
