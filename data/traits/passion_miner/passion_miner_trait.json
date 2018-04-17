@@ -1,0 +1,16 @@
+{
+   "type": "trait",
+   "mixins": "stonehearth:mixins:traits:passion_job",
+   "icon": "file(icon.png)",
+   "data": {
+      "job_uri": "miner_prof:jobs:miner"
+   },
+   "subject_overrides": [
+      {
+         "subject": "miner_prof:miner:talisman",
+         "sentiment": 1,
+         "permanent": true,
+         "unvarying": true
+      }
+   ]
+}

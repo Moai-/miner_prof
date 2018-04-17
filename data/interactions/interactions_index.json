@@ -1,0 +1,12 @@
+{
+  "interactions": {
+    "mine": {
+      "activities": [
+        "miner_prof:mining:dig_fast"
+      ]
+    }
+  },
+  "extractors": {
+    "miner_prof:mining:dig_fast": "stonehearth:extractors:mining"
+  }
+}

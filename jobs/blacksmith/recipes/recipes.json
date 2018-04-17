@@ -1,0 +1,11 @@
+{
+  "craftable_recipes":{
+    "tools":{
+      "recipes":{
+        "miner_pick":{
+          "recipe": "file(miner_pick_recipe.json)"
+        }
+      }
+    }
+  }
+}

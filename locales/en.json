@@ -1,0 +1,51 @@
+{
+	"perks": {
+		"work_1": {
+			"name": "Mining techniques",
+			"desc": "This hearthling has learned basic fast mining techniques."
+		},
+		"inv_1": {
+			"name": "Ore bag",
+			"desc": "A backpack fitting 2 extra items has been issued to this hearthling."
+		},
+		"speed_1": {
+			"name": "Hurried",
+			"desc": "This miner doesn't want to waste any time. Speed increased by 10."
+		},
+		"work_2": {
+			"name": "Advanced mining techniques",
+			"desc": "Pulverizing stone is easier than brushing teeth to this miner. Mining efficiency increased."
+		},
+		"inv_2": {
+			"name": "Extra compartments",
+			"desc": "Who needs a backpack when you have all these pockets? Miner can carry 2 more items."
+		},
+		"speed_2": {
+			"name": "Efficient",
+			"desc": "Rocks and loose soil are second nature to this miner. Speed increased by 15."
+		},
+		"work_3": {
+			"name": "Master mining techniques",
+			"desc": "The stone practically melts under this miner's pick, as a knife through butter. Maximum mining efficiency."
+		}
+	},
+	"info": {
+		"name": "Miner",
+		"desc": "A utility class specialized in mining and hauling.",
+		"req": "Crafted by Blacksmith"
+	},
+	"items": {
+		"coat": {
+			"name": "Miner's coat",
+			"desc": "Keeps the dust away"
+		},
+		"pick": {
+			"name": "Mining pick",
+			"desc": "For mining and picking"
+		},
+		"pick_recipe": {
+			"name": "Mining pick",
+			"desc": "Promotes a hearthling into a Miner"
+		}
+	}
+}
