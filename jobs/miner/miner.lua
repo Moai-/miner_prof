@@ -33,7 +33,7 @@ end
 -- TODO: award XP based on the presence of rare ore??
 function MinerClass:_on_mined_anything(args)
    self._mined_items = self._mined_items + 1
-   if self._mined_items >= 8 then
+   if self._mined_items >= 15 then
      self._mined_items = 0
      self._job_component:add_exp(1)
    end

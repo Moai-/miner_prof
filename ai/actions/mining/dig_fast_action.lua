@@ -10,7 +10,7 @@ Dig.args = {
    purpose = 'string',
    description = 'string',
 }
-Dig.priority = 0.5
+Dig.priority = 0
 
 local resource_radius = 0.5 -- distance from the center of a voxel to the edge
 local entity_reach = 1.0   -- read this from entity_data.stonehearth:entity_reach
@@ -83,9 +83,17 @@ end
 
 local ai = stonehearth.ai
 
--- function Dig:start()
---   radiant.log.write('miner_prof', 0, 'Dig fast action started')
--- end
+function Dig:start(ai, entity)
+  -- radiant.log.write('miner_prof', 0, 'Dig fast action started')
+  local pc = entity:add_component('stonehearth:posture')
+  pc:set_posture('stonehearth:mine')
+end
+
+function Dig:stop(ai, entity)
+  -- radiant.log.write('miner_prof', 0, 'Dig fast action stopped')
+  local pc = entity:add_component('stonehearth:posture')
+  pc:unset_posture('stonehearth:mine')
+end
 
 return ai:create_compound_action(Dig)
          :execute('stonehearth:find_path_to_entity_type', {
