@@ -25,7 +25,7 @@ Stonehearth appears to have a Miner class within its files, as well, but all I u
 
 **Known issues**
 * Hearthling portrait sometimes flashes when the miner is mining.
-* Your modder is a neophyte. There may be more bugs I haven't found yet.
+* Miners will prioritize hauling over mining if there are hauling tasks available. To avoid this, turn off hauling for miners when you want them to do nothing but mine.
 
 All feedback is appreciated, but in particular, I'd like to hear about balancing: does the miner gain XP at a good rate? Does he mine too quickly? Too slowly? Additionally, you can see that I am not a very good artist. If you have a bit of free time, and have a good idea of what the miner could look like, please let me know. The current costume is just the reskinned and slightly modified trader outfit.
 
