@@ -20,7 +20,6 @@ Stonehearth appears to have a Miner class within its files, as well, but all I u
 
 **Coming soon**
 * More equipment (pickaxes, mining hammers, lantern)
-* Pickaxe always visible
 * Hearthling stats affect job ability
 * More experience gained when mining ore veins, ore more frequently found by higher-level miners
 
