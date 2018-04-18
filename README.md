@@ -1,6 +1,6 @@
 Greetings my fellow hearth**kings**, today I bring before you the humble, yet very useful Miner.
 
-![thumbnail](https://discourse.stonehearth.net/uploads/stonehearth/original/3X/7/1/710e62764ce712c27c9a88616ed628cd26f39dbf.jpg)
+![thumbnail](https://i.imgur.com/7yNTb7f.png)
 
 [Dropbox Link](https://www.dropbox.com/s/g1mh5zlmtyp7kwf/miner_prof.smod?dl=0)  
 [Steam Upload](https://steamcommunity.com/sharedfiles/filedetails/?id=1359741441)  
