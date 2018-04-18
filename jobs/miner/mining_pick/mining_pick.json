@@ -10,10 +10,7 @@
       },
       "stonehearth:equipment_piece": {
          "slot": "mainhand",
-         "render_type": "attach_to_bone",
-         "postures": [
-            "stonehearth:combat"
-         ]
+         "render_type": "attach_to_bone"
       },
       "stonehearth:entity_forms": {
          "iconic_form": "file(mining_pick_iconic.json)"

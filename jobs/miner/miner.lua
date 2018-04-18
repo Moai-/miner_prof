@@ -56,7 +56,7 @@ end
 
 -- Decreases backpack size
 function MinerClass:decrease_backpack_size(args)
-   self:increase_backpack_size(-args.backpack_size_increase)
+   self:increase_backpack_size({backpack_size_increase = -args.backpack_size_increase})
 end
 
 -- Shows its own work ability
