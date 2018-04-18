@@ -2,16 +2,16 @@
    "type": "recipe",
    "effort": 60,
    "work_units": 10,
-   "recipe_name": "i18n(miner_prof:items.pick_recipe.name)",
-   "description": "i18n(miner_prof:items.pick_recipe.desc)",
+   "recipe_name": "i18n(miner_prof:items.iron_pick_recipe.name)",
+   "description": "i18n(miner_prof:items.iron_pick_recipe.desc)",
    "flavor": "",
-   "portrait": "/miner_prof/jobs/miner/mining_pick/mining_pick.png",
+   "portrait": "/miner_prof/jobs/miner/iron_pick/iron_pick.png",
    "workshop": "stonehearth:blacksmith:workbench",
    "level_requirement": 1,
    "ingredients": [
       {
          "uri": "stonehearth:refined:iron_ingot",
-         "count": 1
+         "count": 2
       },
       {
          "material": "wood resource",

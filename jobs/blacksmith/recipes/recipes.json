@@ -2,10 +2,22 @@
   "craftable_recipes":{
     "tools":{
       "recipes":{
-        "miner_pick":{
-          "recipe": "file(miner_pick_recipe.json)"
+        "iron_pick":{
+          "recipe": "file(iron_pick_recipe.json)"
         }
       }
-    }
+    },
+    "equipment": {
+       "ordinal": 11,
+       "name": "i18n(miner_prof:info.equipment_section_name)",
+       "recipes": {
+          "steel_pick": {
+             "recipe": "file(steel_pick_recipe.json)"
+          },
+          "master_pick": {
+             "recipe": "file(master_pick_recipe.json)"
+          }
+       }
+    },
   }
 }

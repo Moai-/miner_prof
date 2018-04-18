@@ -22,30 +22,47 @@
 		},
 		"speed_2": {
 			"name": "Эффективность",
-			"desc": "Rocks and loose soil are second nature to this miner. Speed increased by 15."
+			"desc": "Камни и гравель родны этому шахтеру. Скорость увеличена на 15."
 		},
 		"work_3": {
 			"name": "Master mining techniques",
-			"desc": "The stone practically melts under this miner's pick, as a knife through butter. Maximum mining efficiency."
+			"desc": "Камень просто тает под киркой этого шахтера. Добывает быстрее."
 		}
 	},
 	"info": {
 		"name": "Шахтер",
 		"desc": "Вспомогательный класс, специализирующийся на добыче и транспортировке.",
-		"req": "Требуется кузнец"
+		"req": "Требуется кузнец",
+		"equipment_section_name": "Оборудование"
 	},
 	"items": {
 		"coat": {
 			"name": "Шахтерский плащ",
 			"desc": "Не пропускает пыль!"
 		},
-		"pick": {
-			"name": "Кирка",
+		"iron_pick": {
+			"name": "Железная кирка",
 			"desc": "Для шахтёрских работ."
 		},
-		"pick_recipe": {
+		"iron_pick_recipe": {
 			"name": "Кирка",
 			"desc": "Требуется, чтобы из поселенца сделать шахтёра."
+		},
+		"steel_pick": {
+			"name": "Стальная кирка",
+			"desc": "Крепче и жоще чем обыкновенные кирки, эта сделана из стали."
+		},
+		"steel_pick_recipe": {
+			"name": "Стальная кирка",
+			"desc": "Крепче и жоще чем обыкновенные кирки, эта сделана из стали."
+		},
+		"master_pick": {
+			"name": "Легендарная кирка",
+			"desc": "Эта удивительная кирка плывет сквозь камень, как рыбка в воде."
+		},
+		"master_pick_recipe": {
+			"name": "Легендарная кирка",
+			"desc": "Эта удивительная кирка плывет сквозь камень, как рыбка в воде."
 		}
 	}
 }

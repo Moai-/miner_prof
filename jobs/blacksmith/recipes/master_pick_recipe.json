@@ -1,0 +1,34 @@
+{
+   "type": "recipe",
+   "effort": 60,
+   "work_units": 10,
+   "recipe_name": "i18n(miner_prof:items.master_pick_recipe.name)",
+   "description": "i18n(miner_prof:items.master_pick_recipe.desc)",
+   "flavor": "",
+   "portrait": "/miner_prof/jobs/miner/master_pick/master_pick.png",
+   "workshop": "stonehearth:blacksmith:workbench",
+   "level_requirement": 6,
+   "ingredients": [
+      {
+         "uri": "stonehearth:refined:silver_ingot",
+         "count": 2
+      },
+      {
+         "uri": "stonehearth:refined:steel_ingot",
+         "count": 5
+      },
+      {
+         "uri": "stonehearth:refined:gold_ingot",
+         "count": 10
+      },
+      {
+         "material": "wood resource",
+         "count": 6
+      }
+   ],
+   "produces": [
+      {
+         "item": "miner_prof:miner:master_pick"
+      }
+   ]
+}

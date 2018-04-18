@@ -5,16 +5,16 @@
      "model_variants": {
         "default": {
            "models": [
-              "file(mining_pick.qb)"
+              "file(master_pick.qb)"
            ]
         }
      }
   },
   "entity_data": {
      "stonehearth:catalog": {
-        "display_name": "i18n(miner_prof:items.pick.name)",
-        "description": "i18n(miner_prof:items.pick.desc)",
-        "icon": "file(mining_pick.png)",
+        "display_name": "i18n(miner_prof:items.master_pick.name)",
+        "description": "i18n(miner_prof:items.master_pick.desc)",
+        "icon": "file(iron_pick.png)",
         "is_item": true,
         "category": "tools"
      }

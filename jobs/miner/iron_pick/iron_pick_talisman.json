@@ -6,7 +6,7 @@
       "model_variants": {
          "default": {
             "models": [
-               "file(mining_pick.qb)"
+               "file(iron_pick.qb)"
             ]
          }
       },
@@ -29,9 +29,9 @@
          }
       },
       "stonehearth:catalog": {
-         "display_name": "i18n(miner_prof:items.pick.name)",
-         "description": "i18n(miner_prof:items.pick.desc)",
-         "icon": "file(mining_pick.png)",
+         "display_name": "i18n(miner_prof:items.iron_pick.name)",
+         "description": "i18n(miner_prof:items.iron_pick.desc)",
+         "icon": "file(iron_pick.png)",
          "is_item": true,
          "category": "tools",
          "material_tags": "stockpile_tool"

@@ -11,7 +11,7 @@
    "abilities": "file(miner_abilities)",
    "equipment": {
       "torso": "file(miner_outfit)",
-      "mainhand": "miner_prof:miner:mining_pick"
+      "mainhand": "miner_prof:miner:iron_pick"
    },
    "roles": "miner_job",
    "talisman_uri": "miner_prof:miner:talisman",
@@ -39,7 +39,7 @@
              "demote_fn": "set_miner_work",
              "icon": "file(images/icon.png)",
              "strikes": 3,
-             "blocks": 5,
+             "blocks": 4,
              "level": 1
           },
           {
@@ -79,7 +79,7 @@
              "demote_fn": "set_miner_work",
              "icon": "file(images/icon.png)",
              "strikes": 2,
-             "blocks": 7,
+             "blocks": 5,
              "level": 3
           }
        ]
@@ -122,7 +122,7 @@
              "demote_fn": "set_miner_work",
              "icon": "file(images/icon.png)",
              "strikes": 1,
-             "blocks": 7,
+             "blocks": 5,
              "level": 6
           }
        ]

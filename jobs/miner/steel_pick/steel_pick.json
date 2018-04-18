@@ -1,0 +1,43 @@
+{
+   "type": "entity",
+   "components": {
+      "model_variants": {
+         "default": {
+            "models": [
+               "file(steel_pick.qb)"
+            ]
+         }
+      },
+      "stonehearth:equipment_piece": {
+         "slot": "mainhand",
+         "equip_effect": "stonehearth:effects:weapon_level_up",
+         "render_type": "attach_to_bone",
+         "ilevel": 20,
+         "roles":"miner_job",
+         "postures": [
+            "stonehearth:mine"
+         ]
+      },
+      "stonehearth:entity_forms": {
+         "iconic_form": "file(steel_pick_iconic.json)"
+      }
+   },
+
+   "entity_data": {
+      "miner_prof:pickaxe_data":{
+        "extra_blocks":2
+      },
+      "stonehearth:net_worth": {
+         "value_in_gold": 75,
+         "shop_info": {
+            "buyable": false,
+            "sellable": true
+         }
+      },
+      "stonehearth:catalog": {
+         "display_name": "i18n(miner_prof:items.steel_pick.name)",
+         "description": "i18n(miner_prof:items.steel_pick.desc)",
+         "icon": "file(steel_pick.png)"
+      }
+   }
+}

@@ -32,20 +32,37 @@
 	"info": {
 		"name": "Miner",
 		"desc": "A utility class specialized in mining and hauling.",
-		"req": "Crafted by Blacksmith"
+		"req": "Crafted by Blacksmith",
+		"equipment_section_name": "Equipment"
 	},
 	"items": {
 		"coat": {
 			"name": "Miner's coat",
 			"desc": "Keeps the dust away"
 		},
-		"pick": {
-			"name": "Mining pick",
-			"desc": "For mining and picking"
+		"iron_pick": {
+			"name": "Iron pick",
+			"desc": "Basic mining tool"
 		},
-		"pick_recipe": {
-			"name": "Mining pick",
+		"iron_pick_recipe": {
+			"name": "Iron pick",
 			"desc": "Promotes a hearthling into a Miner"
+		},
+		"steel_pick": {
+			"name": "Steel pick",
+			"desc": "A sturdier, stiffer pickaxe made of steel"
+		},
+		"steel_pick_recipe": {
+			"name": "Steel pick",
+			"desc": "A sturdier, stiffer pickaxe made of steel"
+		},
+		"master_pick": {
+			"name": "Master pick",
+			"desc": "The solid-gold weight on this axe makes it cut through rock like a fish through water"
+		},
+		"master_pick_recipe": {
+			"name": "Master pick",
+			"desc": "The solid-gold weight on this axe makes it cut through rock like a fish through water"
 		}
 	}
 }

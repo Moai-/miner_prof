@@ -10,22 +10,22 @@ The more your Miners mine, the better they get at it. I have a desert settlement
 
 Stonehearth appears to have a Miner class within its files, as well, but all I used from it was the miner icon itself. It's been sitting there for more than a few years now, untouched. I have no idea when Team Radiant will get around to it, so until they do, this will have to suffice.  
 
-**Features**
+Features
 
 * Pickaxe created by Blacksmith at level 1 to promote
 * Mines faster than regular hearthlings, with further speed increases at levels 3 and 6
+* 3 different pickaxes to craft that impact mining efficiency
 * Backpack affords expanded inventory for all that ore
 * Levelling progression includes speed upgrades as well - perfect for hauling when there are no mining tasks
-* **Cannot build**, so you still need workers for that
+* Cannot build, so you still need workers for that
 
-**Coming soon**
-* More equipment (pickaxes, mining hammers, lantern)
+Coming soon
+* More equipment (mining hammers, lantern)
 * Hearthling stats affect job ability
 * More experience gained when mining ore veins, ore more frequently found by higher-level miners
 
-**Known issues**
+Known issues
 * Hearthling portrait sometimes flashes when the miner is mining.
-* Miners will prioritize hauling over mining if there are hauling tasks available. To avoid this, turn off hauling for miners when you want them to do nothing but mine.
 
 All feedback is appreciated, but in particular, I'd like to hear about balancing: does the miner gain XP at a good rate? Does he mine too quickly? Too slowly? Additionally, you can see that I am not a very good artist. If you have a bit of free time, and have a good idea of what the miner could look like, please let me know. The current costume is just the reskinned and slightly modified trader outfit.
 

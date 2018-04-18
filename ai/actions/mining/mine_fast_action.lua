@@ -8,7 +8,7 @@ Mine.name = 'mine_fast'
 Mine.does = 'stonehearth:mine'
 Mine.status_text_key = 'stonehearth:ai.actions.status_text.mine'
 Mine.args = {}
-Mine.priority = 0
+Mine.priority = 1
 
 local ai = stonehearth.ai
 return ai:create_compound_action(Mine)

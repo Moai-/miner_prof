@@ -4,26 +4,39 @@
       "model_variants": {
          "default": {
             "models": [
-               "file(mining_pick.qb)"
+               "file(iron_pick.qb)"
             ]
          }
       },
       "stonehearth:equipment_piece": {
          "slot": "mainhand",
+         "roles":"miner_job",
+         "equip_effect": "stonehearth:effects:weapon_level_up",
+         "ilevel": 10,
          "render_type": "attach_to_bone",
          "postures": [
             "stonehearth:mine"
          ]
       },
       "stonehearth:entity_forms": {
-         "iconic_form": "file(mining_pick_iconic.json)"
+         "iconic_form": "file(iron_pick_iconic.json)"
       }
    },
 
    "entity_data": {
+      "miner_prof:pickaxe_data":{
+        "extra_blocks":1
+      },
       "stonehearth:combat:weapon_data": {
          "base_damage": 4,
-         "reach": 0.75
+         "reach": 0.85
+      },
+      "stonehearth:net_worth": {
+         "value_in_gold": 15,
+         "shop_info": {
+            "buyable": false,
+            "sellable": true
+         }
       },
       "stonehearth:combat:melee_attacks": [
          {
@@ -35,9 +48,9 @@
          }
       ],
       "stonehearth:catalog": {
-         "display_name": "i18n(miner_prof:items.pick.name)",
-         "description": "i18n(miner_prof:items.pick.desc)",
-         "icon": "file(mining_pick.png)"
+         "display_name": "i18n(miner_prof:items.iron_pick.name)",
+         "description": "i18n(miner_prof:items.iron_pick.desc)",
+         "icon": "file(iron_pick.png)"
       }
    }
 }

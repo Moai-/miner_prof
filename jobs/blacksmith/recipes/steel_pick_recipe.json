@@ -1,0 +1,26 @@
+{
+   "type": "recipe",
+   "effort": 60,
+   "work_units": 10,
+   "recipe_name": "i18n(miner_prof:items.steel_pick_recipe.name)",
+   "description": "i18n(miner_prof:items.steel_pick_recipe.desc)",
+   "flavor": "",
+   "portrait": "/miner_prof/jobs/miner/steel_pick/steel_pick.png",
+   "workshop": "stonehearth:blacksmith:workbench",
+   "level_requirement": 3,
+   "ingredients": [
+      {
+         "uri": "stonehearth:refined:steel_ingot",
+         "count": 2
+      },
+      {
+         "material": "wood resource",
+         "count": 1
+      }
+   ],
+   "produces": [
+      {
+         "item": "miner_prof:miner:steel_pick"
+      }
+   ]
+}

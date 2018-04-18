@@ -10,7 +10,7 @@ Dig.args = {
    purpose = 'string',
    description = 'string',
 }
-Dig.priority = 0
+Dig.priority = 1
 
 local resource_radius = 0.5 -- distance from the center of a voxel to the edge
 local entity_reach = 1.0   -- read this from entity_data.stonehearth:entity_reach

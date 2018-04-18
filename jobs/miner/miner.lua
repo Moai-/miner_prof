@@ -29,6 +29,11 @@ function MinerClass:_remove_listeners()
    end
 end
 
+-- Called when somebody is promoted to a Miner
+function MinerClass:promote(json_path)
+  BaseJob.promote(self, json_path)
+end
+
 -- Award XP for mining a number of anything
 -- TODO: award XP based on the presence of rare ore??
 function MinerClass:_on_mined_anything(args)
@@ -41,6 +46,7 @@ end
 
 -- Sets the miner's work ability
 function MinerClass:set_miner_work(args)
+
   self._sv.strikes = args.strikes
   self._sv.blocks = args.blocks
   -- radiant.log.write('miner_prof', 0, 'Mining strikes set to ' .. tostring(args.strikes) .. ' and blocks set to ' .. tostring(args.blocks))
@@ -62,6 +68,11 @@ end
 -- Shows its own work ability
 function MinerClass:get_miner_work()
   return self._sv.strikes, self._sv.blocks
+end
+
+-- On demotion, resets its priorities
+function MinerClass:demote(json_path)
+  BaseJob.demote(self)
 end
 
 return MinerClass

@@ -14,7 +14,7 @@ DigAdjacent.args = {
    mining_zone = Entity,
    adjacent_location = Point3,
 }
-DigAdjacent.priority = 0
+DigAdjacent.priority = 1
 
 -- TODO: refactor this with mine_action
 local resource_radius = 0.5 -- distance from the center of a voxel to the edge
@@ -68,8 +68,13 @@ function DigAdjacent:run(ai, entity, args)
    local action_repeated = 0
    local numBlocksConsumed = 35
    self._block = nil
+   local extra_blocks = 0
 
    ai:unprotect_argument(mining_zone)
+   local weapon = radiant.entities.get_equipped_item(entity, 'mainhand')
+   if weapon then
+     extra_blocks = radiant.entities.get_entity_data(weapon, 'miner_prof:pickaxe_data').extra_blocks
+   end
 
    -- Get a reference to the Miner job controller, which "knows" how good it is
    -- at its own job.
@@ -79,15 +84,16 @@ function DigAdjacent:run(ai, entity, args)
 
 
    -- Mine the mining zone in a "fast" fashion
-   -- H'ling approaches the block and hits it $STRIKES times first, then is
-   -- allowed to pick up $BLOCKS number of blocks.
+   -- H'ling approaches the block and hits it $strikes times first, then is
+   -- allowed to pick up $blocks number of blocks.
    repeat
       strikes, blocks = mc:get_miner_work()
+      blocks = blocks + extra_blocks
       if numBlocksConsumed >= blocks then
         numBlocksConsumed = 0
         action_repeated = 0
         repeat
-          ai:execute('stonehearth:run_effect', { effect = 'mine' })
+          ai:execute('stonehearth:run_effect', { effect = 'mine_with_tool' })
           action_repeated = action_repeated + 1
         until action_repeated >= strikes
       end

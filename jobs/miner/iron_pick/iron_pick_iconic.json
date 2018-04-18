@@ -1,0 +1,22 @@
+{
+  "mixins": "stonehearth:mixins:item_properties",
+  "type": "entity",
+  "components": {
+     "model_variants": {
+        "default": {
+           "models": [
+              "file(iron_pick.qb)"
+           ]
+        }
+     }
+  },
+  "entity_data": {
+     "stonehearth:catalog": {
+        "display_name": "i18n(miner_prof:items.iron_pick.name)",
+        "description": "i18n(miner_prof:items.iron_pick.desc)",
+        "icon": "file(iron_pick.png)",
+        "is_item": true,
+        "category": "tools"
+     }
+  }
+}

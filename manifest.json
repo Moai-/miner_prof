@@ -14,15 +14,21 @@
 		"buffs:speed_1": "file(jobs/miner/miner_buffs/speed_1_buff)",
 		"buffs:speed_2": "file(jobs/miner/miner_buffs/speed_2_buff)",
 		"jobs:miner": "file(jobs/miner/miner_description.json)",
-		"miner:talisman": "file(jobs/miner/mining_pick/mining_pick_talisman.json)",
-		"miner:mining_pick": "file(jobs/miner/mining_pick/mining_pick.json)",
+		"miner:talisman": "file(jobs/miner/iron_pick/iron_pick_talisman.json)",
+		"miner:iron_pick": "file(jobs/miner/iron_pick/iron_pick.json)",
+		"miner:steel_pick": "file(jobs/miner/steel_pick)",
+		"miner:master_pick": "file(jobs/miner/master_pick)",
 		"miner:outfit": "file(jobs/miner/miner_outfit)"
 	},
 	"mixintos" : {
 		"stonehearth/jobs/index.json": "file(jobs/index.json)",
 		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)"
 	},
-	"overrides" : {},
+	"overrides" : {
+		"stonehearth/data/rigs/entities/humans/effects/mine_with_tool.json":
+		       "file(data/rigs/entities/humans/effects/mine_with_tool.json)",
+	  "stonehearth/ai/task_groups/mining_task_group.lua": "file(overrides/mining_task_group.lua)"
+	},
 	"components" : {},
 	"controllers" : {
 		"class:miner": "file(jobs/miner/miner.lua)"
