@@ -27,6 +27,10 @@
 		"work_3": {
 			"name": "Master mining techniques",
 			"desc": "The stone practically melts under this miner's pick, as a knife through butter. Maximum mining efficiency."
+		},
+		"light": {
+			"name": "Something shiny!",
+			"desc": "Your miner finds a very shiny rock, and attaches it to his hard hat."
 		}
 	},
 	"info": {

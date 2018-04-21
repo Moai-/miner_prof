@@ -1,0 +1,7 @@
+{
+  "components": {
+    "render_info": {
+       "material_maps" : ["/miner_prof/data/materials/material_maps/headlamp_material_map.json"]
+    }
+  }
+}

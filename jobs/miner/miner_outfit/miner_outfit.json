@@ -2,7 +2,6 @@
    "type": "entity",
    "mixins": "stonehearth:mixins:item_properties",
    "components": {
-      "render_info": {},
       "model_variants": {
          "default": {
             "layer": "clothing",
@@ -15,7 +14,31 @@
             "models": [
                "file(miner_outfit_female.qb)"
             ]
-         }
+         },
+         "light_on": {
+            "layer": "clothing",
+            "models": [
+               "file(miner_outfit_light_on.qb)"
+            ]
+         },
+         "light_on_female": {
+            "layer": "clothing",
+            "models": [
+               "file(miner_outfit_female_light_on.qb)"
+            ]
+         },
+         "light_off": {
+            "layer": "clothing",
+            "models": [
+               "file(miner_outfit_light_off.qb)"
+            ]
+         },
+         "light_off_female": {
+            "layer": "clothing",
+            "models": [
+               "file(miner_outfit_female_light_off.qb)"
+            ]
+         },
       },
       "stonehearth:equipment_piece": {
          "slot": "torso",

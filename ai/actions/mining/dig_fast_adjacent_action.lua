@@ -127,12 +127,7 @@ function DigAdjacent:_mine_block(ai, entity, mining_zone, block)
       return false
    end
 
-   -- Notify the job component that something was mined, allowing us to award Xp
-   radiant.events.trigger(entity, 'miner_prof:fast_mined_anything')
 
--- #############################################################################
--- ############################ Changes end here ###############################
--- #############################################################################
 
    local mining_zone_component = mining_zone:get_component('stonehearth:mining_zone')
    local loot = mining_zone_component:mine_point(block)
@@ -143,9 +138,12 @@ function DigAdjacent:_mine_block(ai, entity, mining_zone, block)
          inventory:add_item_if_not_full(item)
       end
    end
-   -- for the autotest
-   radiant.events.trigger(entity, 'stonehearth:mined_location', { location = block })
+   -- Notify the job component that something was mined, allowing us to award Xp
+   radiant.events.trigger(entity, 'miner_prof:fast_mined_anything', { mined = loot })
 
+-- #############################################################################
+-- ############################ Changes end here ###############################
+-- #############################################################################
    return true
 end
 

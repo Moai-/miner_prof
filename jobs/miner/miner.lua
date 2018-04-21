@@ -7,6 +7,7 @@
 
 local MinerClass = class()
 local BaseJob = require 'stonehearth.jobs.base_job'
+local NUM_BLOCKS_PER_XP = 22
 radiant.mixin(MinerClass, BaseJob)
 
 -- Initialize ourselves and set our default values to mimic regular SH mining
@@ -18,7 +19,9 @@ end
 
 -- Listen for things being mined
 function MinerClass:_create_listeners()
-  self._mined_items = 0
+  self._mined_items = {}
+  self._mined_item_num = 0
+  self._on_posture_changed_listener = radiant.events.listen(self._sv._entity, 'stonehearth:posture_changed', self, self._on_posture_changed)
   self._on_mined_listener = radiant.events.listen(self._sv._entity, 'miner_prof:fast_mined_anything', self, self._on_mined_anything)
 end
 
@@ -27,6 +30,14 @@ function MinerClass:_remove_listeners()
       self._on_mined_listener:destroy()
       self._on_mined_listener = nil
    end
+   if self._equip_changed_listener then
+     self._equip_changed_listener:destroy()
+     self._equip_changed_listener = nil
+   end
+   if self._on_posture_changed_listener then
+      self._on_posture_changed_listener:destroy()
+      self._on_posture_changed_listener = nil
+    end
 end
 
 -- Called when somebody is promoted to a Miner
@@ -34,13 +45,55 @@ function MinerClass:promote(json_path)
   BaseJob.promote(self, json_path)
 end
 
--- Award XP for mining a number of anything
--- TODO: award XP based on the presence of rare ore??
+-- Turn on mining light if we have access to it
+function MinerClass:_on_posture_changed()
+  -- radiant.log.write('miner_prof', 0, 'posture changed')
+
+  local jc = self._sv._entity:get_component('stonehearth:job')
+  if jc:curr_job_has_perk('miner_light_bonus') then
+    local hlc = self._sv._entity:add_component('miner_prof:headlamp')
+    local posture = radiant.entities.get_posture(self._sv._entity)
+    if posture == 'stonehearth:mine' then
+      hlc:turn_on()
+    else
+      hlc:turn_off()
+    end
+  end
+end
+
+-- Remember what we mined and award XP
 function MinerClass:_on_mined_anything(args)
-   self._mined_items = self._mined_items + 1
-   if self._mined_items >= 15 then
-     self._mined_items = 0
-     self._job_component:add_exp(1)
+   local loot = args.mined
+   local res = self._mined_items
+   local total = self._mined_item_num
+   for uri, val in pairs(loot) do
+     res[uri] = val
+   end
+   total = total + 1
+   self._mined_items = res
+   self._mined_item_num = total
+   if total >= NUM_BLOCKS_PER_XP then
+     -- Award 1 base xp for mining NUM_BLOCKS_PER_XP blocks
+     -- radiant.log.write('miner_prof', 0, 'Init xp adding code')
+
+     local total_xp = 1
+     local found_ore = false
+     for uri, val in pairs(self._mined_items) do
+       -- Check if we found ore
+       local tags = radiant.entities.get_entity_data(uri, 'stonehearth:catalog').material_tags or nil
+       if string.match(tags, 'ore') then
+         found_ore = true
+         break
+       end
+     end
+     if found_ore then
+       -- Award 1 xp for finding ore
+       total_xp = total_xp + 1
+     end
+     -- radiant.log.write('miner_prof', 0, 'Awarding ' .. total_xp .. 'xp for mining ' .. NUM_BLOCKS_PER_XP .. 'blocks')
+     self._job_component:add_exp(total_xp)
+     self._mined_items = {}
+     self._mined_item_num = 0
    end
 end
 
@@ -52,6 +105,14 @@ function MinerClass:set_miner_work(args)
   -- radiant.log.write('miner_prof', 0, 'Mining strikes set to ' .. tostring(args.strikes) .. ' and blocks set to ' .. tostring(args.blocks))
 
   self.__saved_variables:mark_changed()
+end
+
+-- Adds or removes the headlamp
+function MinerClass:add_light()
+  self._sv._entity:add_component('miner_prof:headlamp'):add()
+end
+function MinerClass:remove_light()
+  self._sv._entity:add_component('miner_prof:headlamp'):remove()
 end
 
 -- Increases backpack size (copied from trapper)

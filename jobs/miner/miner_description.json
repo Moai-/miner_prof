@@ -70,7 +70,6 @@
      },
      "3": {
        "perks": [
-
           {
              "name": "i18n(miner_prof:perks.work_2.name)",
              "description": "i18n(miner_prof:perks.work_2.desc)",
@@ -94,6 +93,15 @@
              "demote_fn": "decrease_backpack_size",
              "icon": "file(images/backpack_up.png)",
              "backpack_size_increase": "2",
+             "level": 4
+          },
+          {
+             "name": "i18n(miner_prof:perks.light.name)",
+             "description": "i18n(miner_prof:perks.light.desc)",
+             "type": "add_light",
+             "id": "miner_light_bonus",
+             "demote_fn": "remove_light",
+             "icon": "file(images/shiny.png)",
              "level": 4
           }
        ]

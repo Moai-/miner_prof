@@ -13,6 +13,8 @@
 		"actions:mining:mine_fast": "file(ai/actions/mining/mine_fast_action.lua)",
 		"buffs:speed_1": "file(jobs/miner/miner_buffs/speed_1_buff)",
 		"buffs:speed_2": "file(jobs/miner/miner_buffs/speed_2_buff)",
+		"color_map:headlamp": "file(data/materials/color_maps/headlamp_color_map.json)",
+		"effects:headlamp": "file(data/effects/headlamp_effect.json)",
 		"jobs:miner": "file(jobs/miner/miner_description.json)",
 		"miner:talisman": "file(jobs/miner/iron_pick/iron_pick_talisman.json)",
 		"miner:iron_pick": "file(jobs/miner/iron_pick/iron_pick.json)",
@@ -22,14 +24,18 @@
 	},
 	"mixintos" : {
 		"stonehearth/jobs/index.json": "file(jobs/index.json)",
-		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)"
+		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)",
+		"stonehearth:color_map:human": "miner_prof:color_map:headlamp",
+		"stonehearth:mixins:base_human": "file(mixins/base_human.json)"
 	},
 	"overrides" : {
 		"stonehearth/data/rigs/entities/humans/effects/mine_with_tool.json":
 		       "file(data/rigs/entities/humans/effects/mine_with_tool.json)",
 	  "stonehearth/ai/task_groups/mining_task_group.lua": "file(overrides/mining_task_group.lua)"
 	},
-	"components" : {},
+	"components" : {
+		"headlamp": "file(components/headlamp_component.lua)"
+	},
 	"controllers" : {
 		"class:miner": "file(jobs/miner/miner.lua)"
 	}
