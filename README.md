@@ -22,6 +22,7 @@ Features
 
 Known issues
 * Hearthling portrait sometimes flashes when the miner is mining.
+* This mod overrides `mining_task_group.lua`. This could be an issue if used with another mod that overrides the same file.
 
 All feedback is appreciated. May your stone be ever fertile.
 
