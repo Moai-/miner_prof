@@ -82,6 +82,7 @@ function DigAdjacent:run(ai, entity, args)
    local strikes, blocks = mc:get_miner_work()
    -- radiant.log.write('miner_prof', 0, 'Got' .. tostring(strikes) .. ' strikes and ' .. tostring(blocks) .. ' blocks')
 
+   radiant.events.trigger(entity, 'miner_prof:light_status', { status = 'on' })
 
    -- Mine the mining zone in a "fast" fashion
    -- H'ling approaches the block and hits it $strikes times first, then is
@@ -101,6 +102,7 @@ function DigAdjacent:run(ai, entity, args)
       self:_mine_block(ai, entity, mining_zone, block)
       block, adjacent_location = self:_move_to_next_available_block(ai, entity, mining_zone, adjacent_location)
    until not block
+   radiant.events.trigger(entity, 'miner_prof:light_status', { status = 'off' })
 end
 
 function DigAdjacent:_mine_block(ai, entity, mining_zone, block)

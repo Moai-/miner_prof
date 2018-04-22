@@ -91,6 +91,7 @@ end
 function HeadlampComponent:_toggle_light(light_switch)
   -- radiant.log.write('miner_prof', 0, 'flipping light switch')
   if light_switch then
+    if self._effect then return end
     -- radiant.log.write('miner_prof', 0, 'turning on')
     self._effect = radiant.effects.run_effect(self._entity, 'miner_prof:effects:headlamp')
   else

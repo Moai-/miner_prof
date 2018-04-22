@@ -21,7 +21,7 @@ end
 function MinerClass:_create_listeners()
   self._mined_items = {}
   self._mined_item_num = 0
-  self._on_posture_changed_listener = radiant.events.listen(self._sv._entity, 'stonehearth:posture_changed', self, self._on_posture_changed)
+  self._on_posture_changed_listener = radiant.events.listen(self._sv._entity, 'miner_prof:light_status', self, self._on_light_status)
   self._on_mined_listener = radiant.events.listen(self._sv._entity, 'miner_prof:fast_mined_anything', self, self._on_mined_anything)
 end
 
@@ -46,14 +46,13 @@ function MinerClass:promote(json_path)
 end
 
 -- Turn on mining light if we have access to it
-function MinerClass:_on_posture_changed()
+function MinerClass:_on_light_status(args)
   -- radiant.log.write('miner_prof', 0, 'posture changed')
-
+  local status = args.status
   local jc = self._sv._entity:get_component('stonehearth:job')
   if jc:curr_job_has_perk('miner_light_bonus') then
     local hlc = self._sv._entity:add_component('miner_prof:headlamp')
-    local posture = radiant.entities.get_posture(self._sv._entity)
-    if posture == 'stonehearth:mine' then
+    if status == 'on' then
       hlc:turn_on()
     else
       hlc:turn_off()
