@@ -19,6 +19,7 @@ Stonehearth appears to have a Miner class within its files, as well, but all I u
 * Backpack affords expanded inventory for all that ore
 * Levelling progression includes speed upgrades as well - perfect for hauling when there are no mining tasks
 * Cannot build, so you still need workers for that
+* Перевод по русски / Russian language support
 
 **Known issues**
 * Hearthling portrait sometimes flashes when the miner is mining.
