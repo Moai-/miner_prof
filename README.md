@@ -10,7 +10,7 @@ The more your Miners mine, the better they get at it. I have a desert settlement
 
 Stonehearth appears to have a Miner class within its files, as well, but all I used from it was the miner icon itself. It's been sitting there for more than a few years now, untouched. I have no idea when Team Radiant will get around to it, so until they do, this will have to suffice.  
 
-Features
+**Features**
 
 * Pickaxe created by Blacksmith at level 1 to promote
 * Mines faster than regular hearthlings, with further speed increases at levels 3 and 6
@@ -20,7 +20,7 @@ Features
 * Levelling progression includes speed upgrades as well - perfect for hauling when there are no mining tasks
 * Cannot build, so you still need workers for that
 
-Known issues
+**Known issues**
 * Hearthling portrait sometimes flashes when the miner is mining.
 * This mod overrides `mining_task_group.lua`. This could be an issue if used with another mod that overrides the same file.
 
