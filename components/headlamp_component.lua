@@ -11,12 +11,14 @@
 local HeadlampComponent = class()
 local MALE = 'male'
 local FEMALE = 'female'
+local NULL = 'null'
+local VERSION = {
+  INITIAL = 1,
+  REMEMBER_GENDER = 2
+}
 
 function HeadlampComponent:initialize()
-  local player_id = radiant.entities.get_player_id(self._entity)
-  local pop = stonehearth.population:get_population(player_id)
-  local gender = pop:get_gender(self._entity)
-  self.gender = gender
+  self._sv.gender = NULL
   self._equip_changed_listener = radiant.events.listen(self._entity, 'stonehearth:equipment_piece:equip_changed', self, self._on_equip_changed)
 end
 
@@ -47,29 +49,31 @@ function HeadlampComponent:turn_off()
 end
 
 function HeadlampComponent:remove()
-  self._entity:add_component('render_info')
-                 :set_model_variant('default')
+  local rc = self._entity:add_component('render_info')
+  if self._sv.gender == MALE then
+    rc:set_model_variant('default')
+  else
+    rc:set_model_variant('female')
+  end
 end
 
 function HeadlampComponent:add()
   self:_get_owner_info()
   -- radiant.log.write('miner_prof', 0, 'adding headlamp')
-
   self:_toggle(false)
 end
 
 function HeadlampComponent:_toggle(on_off)
   self:_get_owner_info()
-  local owner = self.owner
   -- radiant.log.write('miner_prof', 0, 'toggling ' .. tostring(on_off))
 
-  if owner ~= nil then
+  if self._entity ~= nil then
 
     -- radiant.log.write('miner_prof', 0, 'got gender: ' .. self.gender)
 
     local gen_str = ''
     local switch_str = '_off'
-    if self.gender == 'female' then gen_str = '_female' end
+    if self._sv.gender == FEMALE then gen_str = '_female' end
     if on_off then
       switch_str = '_on'
       self:_toggle_light(true)
@@ -108,9 +112,14 @@ end
 function HeadlampComponent:_get_owner_info()
   -- radiant.log.write('miner_prof', 0, 'fetch owner info')
   -- radiant.log.write('miner_prof', 0, tostring(self._entity))
-
-  local owner = self._entity
-  self.owner = owner
+  if self._sv.gender == NULL then
+    local gender = MALE
+    local variant = self._entity:get_component('render_info')
+                                :get_model_variant()
+    if string.find(variant, 'female') then gender = FEMALE end
+    self._sv.gender = gender
+    self.__saved_variables:mark_changed()
+  end
   -- radiant.log.write('miner_prof', 0, 'Got owner' .. tostring(owner))
 
   -- self.__saved_variables:mark_changed()

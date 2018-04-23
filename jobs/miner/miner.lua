@@ -7,7 +7,7 @@
 
 local MinerClass = class()
 local BaseJob = require 'stonehearth.jobs.base_job'
-local NUM_BLOCKS_PER_XP = 22
+local NUM_BLOCKS_PER_XP = 19
 radiant.mixin(MinerClass, BaseJob)
 
 -- Initialize ourselves and set our default values to mimic regular SH mining
@@ -29,10 +29,6 @@ function MinerClass:_remove_listeners()
    if self._on_mined_listener then
       self._on_mined_listener:destroy()
       self._on_mined_listener = nil
-   end
-   if self._equip_changed_listener then
-     self._equip_changed_listener:destroy()
-     self._equip_changed_listener = nil
    end
    if self._on_posture_changed_listener then
       self._on_posture_changed_listener:destroy()
