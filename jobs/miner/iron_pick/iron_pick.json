@@ -12,7 +12,7 @@
          "slot": "mainhand",
          "roles":"miner_job",
          "equip_effect": "stonehearth:effects:weapon_level_up",
-         "ilevel": 10,
+         "ilevel": 0,
          "render_type": "attach_to_bone",
          "postures": [
             "stonehearth:mine"

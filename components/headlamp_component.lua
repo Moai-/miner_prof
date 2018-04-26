@@ -84,7 +84,7 @@ function HeadlampComponent:_toggle(on_off)
     -- radiant.log.write('miner_prof', 0, 'equip: ' .. tostring(equip))
 
     local variant = 'light' .. switch_str .. gen_str
-    -- radiant.log.write('miner_prof', 0, 'finally, equipping variant: ' .. variant)
+    radiant.log.write('miner_prof', 0, 'finally, equipping variant: ' .. variant)
 
     self._entity:add_component('render_info')
                    :set_model_variant(variant)
@@ -116,7 +116,7 @@ function HeadlampComponent:_get_owner_info()
     local gender = MALE
     local variant = self._entity:get_component('render_info')
                                 :get_model_variant()
-    if string.find(variant, 'female') then gender = FEMALE end
+    if string.find(variant, FEMALE) then gender = FEMALE end
     self._sv.gender = gender
     self.__saved_variables:mark_changed()
   end

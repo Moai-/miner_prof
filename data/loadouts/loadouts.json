@@ -1,0 +1,50 @@
+{
+  "loadouts": [
+    {
+       "alias": "miner_prof:data:loadouts:load_metal",
+       "display_name":  "i18n(miner_prof:loadouts.load_metal.display_name)",
+       "description": "i18n(miner_prof:loadouts.load_metal.description)",
+       "tooltip": "i18n(miner_prof:loadouts.load_metal.tooltip)",
+       "splash": "file(images/load_metal/splash.png)",
+       "seal": "file(images/load_metal/seal.png)",
+       "enabled": true,
+       "content": [
+          {
+             "display_name": "i18n(stonehearth:jobs.blacksmith.blacksmith_description.display_name)",
+             "type": "entity",
+             "uri": "stonehearth:blacksmith:talisman",
+             "icon": "file(images/items/blacksmith_hammer.png)",
+             "amount": 1
+          },
+          {
+             "display_name": "i18n(miner_prof:info.name)",
+             "type": "entity",
+             "uri": "miner_prof:miner:talisman",
+             "icon": "file(images/items/iron_pick.png)",
+             "amount": 1
+          },
+          {
+             "display_name": "i18n(miner_prof:loadouts.load_metal.ore)",
+             "type": "entity",
+             "uri": "stonehearth:resources:copper:ore",
+             "icon": "file(images/items/copper_ore.png)",
+             "amount": 12
+          },
+          {
+             "display_name": "i18n(miner_prof:loadouts.load_metal.ore2)",
+             "type": "entity",
+             "uri": "stonehearth:resources:tin:ore",
+             "icon": "file(images/items/tin_ore.png)",
+             "amount": 12
+          },
+          {
+             "display_name": "i18n(miner_prof:loadouts.load_metal.ore3)",
+             "type": "entity",
+             "uri": "stonehearth:resources:iron:ore",
+             "icon": "file(images/items/iron_ore.png)",
+             "amount": 6
+          }
+       ]
+       }
+       ]
+       }

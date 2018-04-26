@@ -7,48 +7,60 @@
 
 local MinerClass = class()
 local BaseJob = require 'stonehearth.jobs.base_job'
-local NUM_BLOCKS_PER_XP = 19
+local NUM_BLOCKS_PER_XP = 20
 radiant.mixin(MinerClass, BaseJob)
 
 -- Initialize ourselves and set our default values to mimic regular SH mining
 function MinerClass:initialize()
   BaseJob.initialize(self)
+  self._mined_items = {}
+  self._mined_item_num = 0
+  self._stance = nil
+  self._status = 'off'
   self._sv.strikes = 1
   self._sv.blocks = 1
 end
 
 -- Listen for things being mined
 function MinerClass:_create_listeners()
-  self._mined_items = {}
-  self._mined_item_num = 0
-  self._on_posture_changed_listener = radiant.events.listen(self._sv._entity, 'miner_prof:light_status', self, self._on_light_status)
+  self._on_posture_changed_listener = radiant.events.listen(self._sv._entity, 'stonehearth:posture_changed', self, self._on_posture_changed)
+  self._on_light_status_listener = radiant.events.listen(self._sv._entity, 'miner_prof:light_status', self, self._on_light_status)
   self._on_mined_listener = radiant.events.listen(self._sv._entity, 'miner_prof:fast_mined_anything', self, self._on_mined_anything)
 end
 
 function MinerClass:_remove_listeners()
-   if self._on_mined_listener then
-      self._on_mined_listener:destroy()
-      self._on_mined_listener = nil
-   end
-   if self._on_posture_changed_listener then
-      self._on_posture_changed_listener:destroy()
-      self._on_posture_changed_listener = nil
-    end
+  if self._on_mined_listener then
+    self._on_mined_listener:destroy()
+    self._on_mined_listener = nil
+  end
+  if self._on_posture_changed_listener then
+    self._on_posture_changed_listener:destroy()
+    self._on_posture_changed_listener = nil
+  end
+  if self._on_light_status_listener then
+    self._on_light_status_listener:destroy()
+    self._on_light_status_listener = nil
+  end
 end
 
--- Called when somebody is promoted to a Miner
-function MinerClass:promote(json_path)
-  BaseJob.promote(self, json_path)
-end
-
--- Turn on mining light if we have access to it
+-- Mining light request received; try to toggle light, remember request otherwise
 function MinerClass:_on_light_status(args)
   -- radiant.log.write('miner_prof', 0, 'posture changed')
-  local status = args.status
+  self._status = args.status
+  self:_try_toggle_light()
+end
+
+-- Stance received; try to turn on the light if we wanted to before
+function MinerClass:_on_posture_changed(args)
+  self._posture = radiant.entities.get_posture(self._sv._entity)
+  self:_try_toggle_light()
+end
+
+function MinerClass:_try_toggle_light()
   local jc = self._sv._entity:get_component('stonehearth:job')
   if jc:curr_job_has_perk('miner_light_bonus') then
     local hlc = self._sv._entity:add_component('miner_prof:headlamp')
-    if status == 'on' then
+    if self._status == 'on' and self._posture == 'stonehearth:mine' then
       hlc:turn_on()
     else
       hlc:turn_off()
@@ -92,14 +104,37 @@ function MinerClass:_on_mined_anything(args)
    end
 end
 
+-- Shows its own work ability
+function MinerClass:get_miner_work()
+  return self._sv.strikes, self._sv.blocks
+end
+
+-- The functions below are all referenced in the miner_description.json
+-- Each one corresponds to a special perk that the Miner gets, or loses, on job
+-- promotion or demotion.
+
 -- Sets the miner's work ability
 function MinerClass:set_miner_work(args)
-
   self._sv.strikes = args.strikes
   self._sv.blocks = args.blocks
   -- radiant.log.write('miner_prof', 0, 'Mining strikes set to ' .. tostring(args.strikes) .. ' and blocks set to ' .. tostring(args.blocks))
-
   self.__saved_variables:mark_changed()
+end
+
+-- adds or removes the backpack
+function MinerClass:add_backpack()
+  self._backpack =  radiant.entities.create_entity('miner_prof:equipment:backpack')
+  radiant.entities.equip_item(self._sv._entity, self._backpack)
+end
+function MinerClass:remove_backpack()
+  local ec = self._sv._entity:get_component('stonehearth:equipment')
+  if not ec then return end
+  ec:unequip_item('miner_prof:equipment:backpack')
+  if self._backpack then
+    radiant.entities.destroy_entity(self._backpack)
+
+    self._backpack = nil
+  end
 end
 
 -- Adds or removes the headlamp
@@ -110,10 +145,16 @@ function MinerClass:remove_light()
   self._sv._entity:add_component('miner_prof:headlamp'):remove()
 end
 
--- Increases backpack size (copied from trapper)
+-- Increases backpack size (adapted from trapper)
 function MinerClass:increase_backpack_size(args)
    local sc = self._sv._entity:get_component('stonehearth:storage')
    sc:change_max_capacity(args.backpack_size_increase)
+   local capacity = sc:get_capacity()
+   if capacity > 4 then
+     self:add_backpack()
+   else
+     self:remove_backpack()
+   end
 end
 
 -- Decreases backpack size
@@ -121,14 +162,12 @@ function MinerClass:decrease_backpack_size(args)
    self:increase_backpack_size({backpack_size_increase = -args.backpack_size_increase})
 end
 
--- Shows its own work ability
-function MinerClass:get_miner_work()
-  return self._sv.strikes, self._sv.blocks
-end
+function MinerClass:destroy()
+  radiant.log.write('miner_prof', 0, 'destroyed')
 
--- On demotion, resets its priorities
-function MinerClass:demote(json_path)
-  BaseJob.demote(self)
+  if self._backpack then
+    self:remove_backpack()
+  end
 end
 
 return MinerClass

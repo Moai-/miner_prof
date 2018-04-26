@@ -16,7 +16,7 @@ Stonehearth appears to have a Miner class within its files, as well, but all I u
 * Mines faster than regular hearthlings, with further speed increases at levels 3 and 6
 * 3 different pickaxes to craft that impact mining efficiency
 * Headlamp to light the dreary underground
-* Backpack affords expanded inventory for all that ore
+* Backpack expands and shows the Miner's inventory
 * Levelling progression includes speed upgrades as well - perfect for hauling when there are no mining tasks
 * Cannot build, so you still need workers for that
 * Перевод по русски / Russian language support

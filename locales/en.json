@@ -67,6 +67,21 @@
 		"master_pick_recipe": {
 			"name": "Master pick",
 			"desc": "The solid-gold weight on this axe makes it cut through rock like a fish through water"
+		},
+		"backpack": {
+			"name": "Backpack",
+			"desc_empty": "This backpack is empty",
+			"desc_cont": "This backpack contains: "
 		}
+	},
+	"loadouts": {
+		"load_metal" : {
+			"display_name" : "Metal Masters (Miner)",
+			"description" : "Forge your town's future with the earth's riches. Harden your soldiers with fire and steel. When you have the earth, do you really need anything else?",
+			"tooltip" : "For quickly growing your town's metal industry and military.",
+			"ore" : "Copper",
+			"ore2" : "Tin",
+			"ore3" : "Iron"
+		},
 	}
 }
