@@ -33,7 +33,8 @@
 	"overrides" : {
 		"stonehearth/data/rigs/entities/humans/effects/mine_with_tool.json":
 		       "file(data/rigs/entities/humans/effects/mine_with_tool.json)",
-	  "stonehearth/ai/task_groups/mining_task_group.lua": "file(overrides/mining_task_group.lua)"
+	  "stonehearth/ai/task_groups/mining_task_group.lua": "file(overrides/mining_task_group.lua)",
+		"stonehearth/components/equipment_piece/equipment_piece_component.lua":"file(overrides/equipment_piece_component.lua)"
 	},
 	"components" : {
 		"headlamp": "file(components/headlamp_component.lua)",
