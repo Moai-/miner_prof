@@ -11,10 +11,14 @@
 local BackpackComponent = class()
 
 function BackpackComponent:initialize()
-  -- radiant.log.write('backpack', 0, 'initialized')
+  radiant.log.write('backpack', 0, 'initialized')
   self._equip_changed_listener = radiant.events.listen(self._entity, 'stonehearth:equipment_piece:equip_changed', self, self._on_equip_changed)
   self._sv.owner = self._sv.owner or nil
   self._sv.item_mockups = {}
+end
+
+function BackpackComponent:post_activate()
+  self:_get_owner()
   if self._sv.owner then self:_attach_to_owner() end
 end
 
@@ -42,18 +46,21 @@ function BackpackComponent:_update_description()
   radiant.entities.set_description(self._entity, full)
 
 end
-function BackpackComponent:_on_equip_changed()
-  -- radiant.log.write('miner_prof', 0, 'equip changed!')
+function BackpackComponent:_get_owner()
   local epc = self._entity:get_component('stonehearth:equipment_piece')
   local owner = epc:get_owner()
   if owner ~= self._sv.owner then
     self._sv.owner = owner
-    if owner then
-      self:_attach_to_owner()
-    else
-      self:_release_from_owner()
-    end
     self.__saved_variables:mark_changed()
+  end
+end
+function BackpackComponent:_on_equip_changed()
+  -- radiant.log.write('miner_prof', 0, 'equip changed!')
+  self:_get_owner()
+  if self._sv.owner then
+    self:_attach_to_owner()
+  else
+    self:_release_from_owner()
   end
 end
 
@@ -143,7 +150,7 @@ function BackpackComponent:_release_item_listeners()
 end
 
 function BackpackComponent:destroy()
-  radiant.log.write('backpack', 0, 'destroyed')
+  -- radiant.log.write('backpack', 0, 'destroyed')
 
   self:_release_from_owner()
   if self._equip_changed_listener then
