@@ -163,7 +163,7 @@ function MinerClass:decrease_backpack_size(args)
 end
 
 function MinerClass:destroy()
-  radiant.log.write('miner_prof', 0, 'destroyed')
+  -- radiant.log.write('miner_prof', 0, 'destroyed')
 
   if self._backpack then
     self:remove_backpack()

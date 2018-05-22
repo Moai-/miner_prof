@@ -84,7 +84,7 @@ function HeadlampComponent:_toggle(on_off)
     -- radiant.log.write('miner_prof', 0, 'equip: ' .. tostring(equip))
 
     local variant = 'light' .. switch_str .. gen_str
-    radiant.log.write('miner_prof', 0, 'finally, equipping variant: ' .. variant)
+    -- radiant.log.write('miner_prof', 0, 'finally, equipping variant: ' .. variant)
 
     self._entity:add_component('render_info')
                    :set_model_variant(variant)

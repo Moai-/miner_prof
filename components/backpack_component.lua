@@ -11,7 +11,7 @@
 local BackpackComponent = class()
 
 function BackpackComponent:initialize()
-  radiant.log.write('backpack', 0, 'initialized')
+  -- radiant.log.write('backpack', 0, 'initialized')
   self._equip_changed_listener = radiant.events.listen(self._entity, 'stonehearth:equipment_piece:equip_changed', self, self._on_equip_changed)
   self._sv.owner = self._sv.owner or nil
   self._sv.item_mockups = {}

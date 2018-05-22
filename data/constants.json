@@ -1,0 +1,12 @@
+{
+  "constants": {
+    "equipment":{
+      "SLOT_TO_BONE_MAP":{
+        "back": "torso"
+      }
+    },
+    "backpack":{
+      "MAX_CAPACITY": 12
+    }
+  }
+}

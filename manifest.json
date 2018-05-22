@@ -27,6 +27,7 @@
 		"stonehearth/jobs/index.json": "file(jobs/index.json)",
 		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)",
 		"stonehearth/data/loadouts/loadouts.json":"file(data/loadouts)",
+		"stonehearth/data/constants.json": "file(data/constants.json)",
 		"stonehearth:color_map:human": "miner_prof:color_map:headlamp",
 		"stonehearth:mixins:base_human": "file(mixins/base_human.json)"
 	},
@@ -34,7 +35,6 @@
 		"stonehearth/data/rigs/entities/humans/effects/mine_with_tool.json":
 		       "file(data/rigs/entities/humans/effects/mine_with_tool.json)",
 	  "stonehearth/ai/task_groups/mining_task_group.lua": "file(overrides/mining_task_group.lua)",
-		"stonehearth/components/equipment_piece/equipment_piece_component.lua":"file(overrides/equipment_piece_component.lua)"
 	},
 	"components" : {
 		"headlamp": "file(components/headlamp_component.lua)",
