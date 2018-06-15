@@ -9,11 +9,13 @@
 -- own virtual"backpack".
 
 local BackpackComponent = class()
+local BACKPACK_PLAYER = 'backpack_player'
 
 function BackpackComponent:initialize()
   -- radiant.log.write('backpack', 0, 'initialized')
   self._equip_changed_listener = radiant.events.listen(self._entity, 'stonehearth:equipment_piece:equip_changed', self, self._on_equip_changed)
   self._sv.owner = self._sv.owner or nil
+  self._sv.player = nil
   self._sv.item_mockups = {}
 end
 
@@ -51,6 +53,9 @@ function BackpackComponent:_get_owner()
   local owner = epc:get_owner()
   if owner ~= self._sv.owner then
     self._sv.owner = owner
+    if owner then
+      self._sv.player = radiant.entities.get_player_id(owner)
+    end
     self.__saved_variables:mark_changed()
   end
 end
@@ -81,7 +86,7 @@ function BackpackComponent:_add_local_item(item)
   local uri = item:get_uri()
   local copy = radiant.entities.create_entity(uri)
   if copy then
-    local res = sc:add_item(copy)
+    local res = sc:add_item(copy, false, BACKPACK_PLAYER)
     -- radiant.log.write('backpack', 0, 'Added item ' .. tostring(item) .. ' to backpack store with result ' .. tostring(res))
     self._sv.item_mockups[id] = {
       id = copy:get_id(),
@@ -98,6 +103,10 @@ function BackpackComponent:_remove_local_item(id)
     local copy_id = copy_rec.id
     local sc = self._entity:get_component('stonehearth:storage')
     local res = sc:remove_item(copy_id)
+    local inventory = stonehearth.inventory:get_inventory(self._sv.player)
+    if inventory then
+      inventory:remove_item(copy_id)
+    end
     -- radiant.log.write('backpack', 0, 'Removed item ' .. tostring(copy_id) .. ' from backpack store with result ' .. tostring(res))
     self._sv.item_mockups[id] = nil
     self:_update_description()
@@ -107,7 +116,8 @@ end
 
 function BackpackComponent:_attach_to_owner()
   self:_add_item_listeners()
-  local sc = self._sv.owner:get_component('stonehearth:storage')
+  local owner = self._sv.owner
+  local sc = owner:get_component('stonehearth:storage')
   if sc then
     local items = sc:get_items()
     for id, item in pairs(items) do
