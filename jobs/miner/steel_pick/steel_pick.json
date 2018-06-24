@@ -50,7 +50,9 @@
       "stonehearth:catalog": {
          "display_name": "i18n(miner_prof:items.steel_pick.name)",
          "description": "i18n(miner_prof:items.steel_pick.desc)",
-         "icon": "file(steel_pick.png)"
+         "icon": "file(steel_pick.png)",
+         "category": "tools",
+         "material_tags": "steel melee_weapon crafted stockpile_tool"
       }
    }
 }

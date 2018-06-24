@@ -6,6 +6,9 @@
 		"steam_file_id" : "1359741441",
 	},
 	"default_locale": "en",
+	"disabled_mixintos": {
+		"stonehearth/data/loadouts/loadouts.json":"file(data/loadouts)"
+	},
 	"aliases" : {
 		"ai_pack:fast_mining": "file(ai/packs/fast_mining_ai_pack.json)",
 		"actions:mining:dig_fast_adjacent": "file(ai/actions/mining/dig_fast_adjacent_action.lua)",
@@ -26,7 +29,6 @@
 	"mixintos" : {
 		"stonehearth/jobs/index.json": "file(jobs/index.json)",
 		"stonehearth/jobs/blacksmith/recipes/recipes.json": "file(jobs/blacksmith/recipes)",
-		"stonehearth/data/loadouts/loadouts.json":"file(data/loadouts)",
 		"stonehearth/data/constants.json": "file(data/constants.json)",
 		"stonehearth:color_map:human": "miner_prof:color_map:headlamp",
 		"stonehearth:mixins:base_human": "file(mixins/base_human.json)"

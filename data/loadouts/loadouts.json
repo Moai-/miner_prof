@@ -1,6 +1,7 @@
 {
   "loadouts": [
     {
+       "ordinal": 5,
        "alias": "miner_prof:data:loadouts:load_metal",
        "display_name":  "i18n(miner_prof:loadouts.load_metal.display_name)",
        "description": "i18n(miner_prof:loadouts.load_metal.description)",
@@ -45,6 +46,6 @@
              "amount": 6
           }
        ]
-       }
-       ]
-       }
+     }
+   ]
+ }
