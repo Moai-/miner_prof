@@ -68,6 +68,15 @@ function MinerClass:_try_toggle_light()
   end
 end
 
+function contains(table, element)
+  for _, value in pairs(table) do
+    if value == element then
+      return true
+    end
+  end
+  return false
+end
+
 -- Remember what we mined and award XP
 function MinerClass:_on_mined_anything(args)
    local loot = args.mined
@@ -88,7 +97,7 @@ function MinerClass:_on_mined_anything(args)
      for uri, val in pairs(self._mined_items) do
        -- Check if we found ore
        local tags = radiant.entities.get_entity_data(uri, 'stonehearth:catalog').material_tags or nil
-       if string.match(tags, 'ore') then
+       if contains(tags, 'ore') then
          found_ore = true
          break
        end
@@ -140,7 +149,9 @@ end
 -- Adds or removes the headlamp
 function MinerClass:add_light()
   self._sv._entity:add_component('miner_prof:headlamp'):add()
+  self:_try_toggle_light()
 end
+
 function MinerClass:remove_light()
   self._sv._entity:add_component('miner_prof:headlamp'):remove()
 end
