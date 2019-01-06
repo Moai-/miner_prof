@@ -102,11 +102,12 @@ function MinerClass:_on_mined_anything(args)
            found_ore = true
            break
          end
-       else if type(tags) == 'string' then
+       elseif type(tags) == 'string' then
          if string.match(tags, 'ore') then
            found_ore = true
            break
          end
+       end
      end
      if found_ore then
        -- Award 1 xp for finding ore
