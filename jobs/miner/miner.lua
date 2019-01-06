@@ -97,10 +97,16 @@ function MinerClass:_on_mined_anything(args)
      for uri, val in pairs(self._mined_items) do
        -- Check if we found ore
        local tags = radiant.entities.get_entity_data(uri, 'stonehearth:catalog').material_tags or nil
-       if contains(tags, 'ore') then
-         found_ore = true
-         break
-       end
+       if type(tags) == 'table' then
+         if contains(tags, 'ore') then
+           found_ore = true
+           break
+         end
+       else if type(tags) == 'string' then
+         if string.match(tags, 'ore') then
+           found_ore = true
+           break
+         end
      end
      if found_ore then
        -- Award 1 xp for finding ore
