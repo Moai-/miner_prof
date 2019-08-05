@@ -134,6 +134,36 @@
              "level": 6
           }
        ]
+     },
+     "7": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.work_3.name)",
+             "description": "i18n(miner_prof:perks.work_3.desc)",
+             "type": "set_miner_work",
+             "id": "miner_work_up_3",
+             "demote_fn": "set_miner_work",
+             "icon": "file(images/icon.png)",
+             "strikes": 1,
+             "blocks": 5,
+             "level": 7
+          }
+       ]
+     },
+     "8": {
+       "perks": [
+          {
+             "name": "i18n(miner_prof:perks.work_3.name)",
+             "description": "i18n(miner_prof:perks.work_3.desc)",
+             "type": "set_miner_work",
+             "id": "miner_work_up_3",
+             "demote_fn": "set_miner_work",
+             "icon": "file(images/icon.png)",
+             "strikes": 1,
+             "blocks": 5,
+             "level": 8
+          }
+       ]
      }
    }
 }

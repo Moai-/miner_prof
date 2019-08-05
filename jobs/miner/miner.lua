@@ -7,7 +7,7 @@
 
 local MinerClass = class()
 local BaseJob = require 'stonehearth.jobs.base_job'
-local NUM_BLOCKS_PER_XP = 20
+local NUM_BLOCKS_PER_XP = 2
 radiant.mixin(MinerClass, BaseJob)
 
 -- Initialize ourselves and set our default values to mimic regular SH mining
